@@ -3,7 +3,7 @@
 {% load static %}
 <head>
     <meta charset="UTF-8">
-    <title>Departamentos</title>
+    <title>Personajes Star Wars</title>
     <style>
         body {
             font-family: arial, sans-serif;
@@ -36,8 +36,9 @@
                         <th>NOMBRE</th>
                         <th>ALTURA</th>
                         <th>PESO</th>
+                        <th>MUNDO</th>
                     </tr>
-                    {% for name,height,mass in lista%}
+                    {% for name,height,mass, world_name, world_number in lista%}
                     <tr>
                         <td>{{name}}</td>
 
@@ -50,6 +51,7 @@
                             <td style="color:green">{{mass}}</td>
                         {% else %}<td>{{mass}}</td>
                         {% endif %}
+                        <td><a href="inplanet/?planet={{world_number}}">{{world_name}}</a></td>
                     </tr>
                     {% endfor%}
                 </table>
