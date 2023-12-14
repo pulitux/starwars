@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Departamentos</title>
+    <style>
+        body {
+            font-family: arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 3px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <br /><br />
+            <fieldset style ="border: 3px solid black; padding: 20px; color:black;">
+            <legend><strong>Lista de Personajes</strong></legend><br /><br />
+                <h3>Encontrados {{total}} personajes</h3><br />
+                <h4 style="color:red">Personaje más alto: {{max_height}} cms</h4>
+                <h4 style="color:green">Personaje más pesado: {{max_mass}} kgs</h4><br /><br>
+                <table border="0" style="width:100%">
+                    <tr>
+                        <th>NOMBRE</th>
+                        <th>ALTURA</th>
+                        <th>PESO</th>
+                    </tr>
+                    {% for name,height,mass in lista%}
+                    <tr>
+                        <td>{{name}}</td>
+
+                        {% if height == max_height %}
+                            <td style="color:red">{{height}}</td>
+                        {% else %}<td>{{height}}</td>
+                        {% endif %}
+
+                        {% if mass == max_mass %}
+                            <td style="color:green">{{mass}}</td>
+                        {% else %}<td>{{mass}}</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor%}
+                </table>
+            </fieldset>
+            <br></br>
+        </div>
+</body>
